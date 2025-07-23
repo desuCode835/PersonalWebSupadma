@@ -92,23 +92,20 @@ const nav = document.querySelector(".nav"),
         }
 
 // Untuk form
-document.addEventListener("DOMContentLoaded", function () {
-    const form = document.querySelector(".contact-form");
+ document.getElementById("contactForm1").addEventListener("submit", function(event){
+    event.preventDefault(); // mencegah form submit normal
 
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
+    // ambil data
+    const name = document.getElementById("name3").value;
+    const produk = document.getElementById("name4").value;
+    const message = document.getElementById("message1").value;
 
-      const name = form.querySelector('input[name="name"]').value.trim();
-      const email = form.querySelector('input[name="email"]').value.trim();
-      const subject = form.querySelector('input[name="subject"]').value.trim();
-      const message = form.querySelector('textarea[name="message"]').value.trim();
+    // bikin format pesan WA
+    const text = `Nama saya: ${name}%0APanggil saja: ${produk}%0ARequest Pesanan: ${message}`;
 
-      const phoneNumber = "+6287761428070";
+    // Ganti dengan nomor WhatsApp kamu (tanpa + dan tanpa spasi)
+    const phoneNumber = "+6287761428070";
 
-      const whatsappMessage = `Name: ${name}%0AEmail: ${email}%0ASubject: ${subject}%0AMessage: ${message}`;
-
-      const whatsappURL = `https://wa.me/${phoneNumber}?text=${whatsappMessage}`;
-
-      window.open(whatsappURL, "_blank");
-    });
+    // Buka WhatsApp
+    window.open(`https://wa.me/${phoneNumber}?text=${text}`, "_blank");
   });
