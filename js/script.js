@@ -96,12 +96,13 @@ const nav = document.querySelector(".nav"),
     event.preventDefault(); // mencegah form submit normal
 
     // ambil data
-    const name = document.getElementById("name3").value;
-    const produk = document.getElementById("name4").value;
-    const message = document.getElementById("message1").value;
+    const name = document.getElementById("name").value;
+    const produk = document.getElementById("email").value;
+    const message = document.getElementById("subject").value;
+    const message1 = document.getElementById("message").value;
 
     // bikin format pesan WA
-    const text = `Nama saya: ${name}%0APanggil saja: ${produk}%0ARequest Pesanan: ${message}`;
+    const text = `Nama saya: ${name}%0AEmail: ${produk}%0ARPesan: ${message}%0ASubjek : ${message1}`;
 
     // Ganti dengan nomor WhatsApp kamu (tanpa + dan tanpa spasi)
     const phoneNumber = "+6287761428070";
