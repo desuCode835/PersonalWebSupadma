@@ -90,3 +90,26 @@ const nav = document.querySelector(".nav"),
                 allSection[i].classList.toggle("open");
             }
         }
+
+// Untuk form
+document.addEventListener("DOMContentLoaded", function () {
+    const form = document.querySelector(".contact-form");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const name = form.querySelector('input[name="name"]').value.trim();
+      const email = form.querySelector('input[name="email"]').value.trim();
+      const subject = form.querySelector('input[name="subject"]').value.trim();
+      const message = form.querySelector('textarea[name="message"]').value.trim();
+
+      // Ganti dengan nomor WhatsApp Anda (format internasional tanpa +)
+      const phoneNumber = "+6287761428070";
+
+      const whatsappMessage = `Name: ${name}%0AEmail: ${email}%0ASubject: ${subject}%0AMessage: ${message}`;
+
+      const whatsappURL = `https://wa.me/${phoneNumber}?text=${whatsappMessage}`;
+
+      window.open(whatsappURL, "_blank");
+    });
+  });
